@@ -1,0 +1,14 @@
+﻿<Window x:Class="SNAE.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SNAE"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="311.6" Width="738.4" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None" MouseLeftButtonDown="Window_MouseLeftButtonDown" Background="#FF282828">
+    <Grid>
+        <Label ToolTip="Выполнил студент ПИ-б-о-192(1) Ярош Никита" Content="Лабораторная работа №3" HorizontalAlignment="Left" Margin="0,2,0,0" VerticalAlignment="Top" Width="183" Background="{x:Null}" Foreground="White"/>
+        <Button x:Name="BClose" Content="❌" HorizontalAlignment="Left" Margin="711,10,0,0" VerticalAlignment="Top" Width="17" FontSize="8" Background="{x:Null}" BorderBrush="{x:Null}" Click="BClose_Click" Foreground="White"/>
+        <Button x:Name="BMinimize" Content="➖" HorizontalAlignment="Left" Margin="689,10,0,0" VerticalAlignment="Top" Width="17" FontSize="8" Background="{x:Null}" BorderBrush="{x:Null}" Click="BMinimize_Click" Foreground="White"/>
+    </Grid>
+</Window>
