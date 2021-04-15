@@ -10,11 +10,9 @@
         <Label ToolTip="Выполнил студент ПИ-б-о-192(1) Ярош Никита" Content="Лабораторная работа №3" HorizontalAlignment="Left" Margin="6,2,0,0" VerticalAlignment="Top" Width="183" Background="{x:Null}" Foreground="White"/>
         <Button x:Name="BClose" Content="❌" HorizontalAlignment="Left" Margin="299,10,0,0" VerticalAlignment="Top" Width="17" FontSize="8" Background="{x:Null}" BorderBrush="{x:Null}" Click="BClose_Click" Foreground="White"/>
         <Button x:Name="BMinimize" Content="➖" HorizontalAlignment="Left" Margin="277,10,0,0" VerticalAlignment="Top" Width="17" FontSize="8" Background="{x:Null}" BorderBrush="{x:Null}" Click="BMinimize_Click" Foreground="White"/>
-        <TextBox x:Name="TBExpression" HorizontalAlignment="Left" Height="20" Margin="122,51,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="158" BorderBrush="#FF0040FF" Text="x^2-cos(x)" FontFamily="Arial" FontSize="15" IsEnabled="False"/>
         <Button x:Name="BStart" Content="Старт" HorizontalAlignment="Left" Margin="125,362,0,0" VerticalAlignment="Top" Width="75" Background="#FF0040FF" BorderBrush="{x:Null}" Foreground="White" Click="BStart_Click"/>
-        <Label Content="Уравнение" HorizontalAlignment="Left" Margin="40,48,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="White"/>
-        <CheckBox x:Name="CBBisection" Content="Метод бисекции" HorizontalAlignment="Left" Margin="39,188,0,0" VerticalAlignment="Top" Width="114" Background="White" Foreground="White" BorderBrush="#FF0040FF" Checked="CBBisection_Checked" Unchecked="CBBisection_Unchecked"/>
-        <CheckBox x:Name="CBSecant" Content="Метод секущих" HorizontalAlignment="Left" Margin="38,246,0,0" VerticalAlignment="Top" Width="114" Background="White" Foreground="White" BorderBrush="#FF0040FF" Checked="CBSecant_Checked" Unchecked="CBSecant_Unchecked"/>
+        <CheckBox x:Name="CBBisection" Content="Метод бисекции" HorizontalAlignment="Left" Margin="45,175,0,0" VerticalAlignment="Top" Width="114" Background="White" Foreground="White" BorderBrush="#FF0040FF" Checked="CBBisection_Checked" Unchecked="CBBisection_Unchecked"/>
+        <CheckBox x:Name="CBSecant" Content="Метод секущих" HorizontalAlignment="Left" Margin="44,233,0,0" VerticalAlignment="Top" Width="114" Background="White" Foreground="White" BorderBrush="#FF0040FF" Checked="CBSecant_Checked" Unchecked="CBSecant_Unchecked"/>
         <Rectangle Fill="#FF0040FF" Height="1" Margin="10,27,10.4,0" Stroke="#FF0040FF" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
             <Rectangle.RenderTransform>
                 <TransformGroup>
@@ -25,19 +23,21 @@
                 </TransformGroup>
             </Rectangle.RenderTransform>
         </Rectangle>
-        <Grid x:Name="Diapazon" Margin="42,208,28.4,160.6" Visibility="Hidden">
+        <Grid x:Name="Diapazon" Margin="48,195,22.4,173.6" Visibility="Hidden">
             <TextBox x:Name="TBLeft" HorizontalAlignment="Left" Height="20" Margin="61,4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="47" Text="-1" TextAlignment="Center" BorderBrush="#FF0040FF"/>
             <TextBox x:Name="TBRight" HorizontalAlignment="Left" Height="20" Margin="113,4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="47" Text="1" TextAlignment="Center" BorderBrush="#FF0040FF"/>
             <Label Content="Отрезок:" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{x:Null}" Foreground="White" Width="58"/>
             <Label Content="ε:" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{x:Null}" Foreground="White" Width="20" Margin="172,0,0,0" FontWeight="Bold"/>
             <TextBox x:Name="TBEps" HorizontalAlignment="Left" Height="20" Margin="192,4,0,0" TextWrapping="Wrap" Text="0.0001" VerticalAlignment="Top" Width="47" BorderBrush="#FF0040FF"/>
         </Grid>
-        <Label Content="Ответ" HorizontalAlignment="Left" Margin="40,79,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="White"/>
-        <TextBox x:Name="TBAnswer" HorizontalAlignment="Left" Height="20" Margin="86,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="194" BorderBrush="#FF0040FF" FontFamily="Arial" FontSize="15" IsEnabled="False"/>
-        <Label Content="" HorizontalAlignment="Left" Margin="40,110,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="White"/>
-        <Label Content="Итераций" HorizontalAlignment="Left" Margin="40,110,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="White"/>
-        <TextBox x:Name="TBIter" HorizontalAlignment="Left" Height="20" Margin="114,115,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="166" BorderBrush="#FF0040FF" FontFamily="Arial" FontSize="15" IsEnabled="False"/>
-        <Rectangle Fill="#FF0040FF" Height="1" Margin="13,159,7.4,0" Stroke="#FF0040FF" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+        <Grid x:Name="GRID1" Margin="44,53,38.4,260.6">
+            <TextBox x:Name="TBExpression" HorizontalAlignment="Left" Height="20" Margin="82,3,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="158" BorderBrush="#FF0040FF" Text="x^2-cos(x)" FontFamily="Arial" FontSize="15" IsEnabled="False"/>
+            <Label Content="Уравнение" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{x:Null}" Foreground="White"/>
+            <Label Content="Ответ" HorizontalAlignment="Left" Margin="0,31,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="White"/>
+            <TextBox x:Name="TBAnswer" HorizontalAlignment="Left" Height="20" Margin="46,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="194" BorderBrush="#FF0040FF" FontFamily="Arial" FontSize="15" IsEnabled="False"/>
+            <Label Content="" HorizontalAlignment="Left" Margin="0,62,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="White"/>
+        </Grid>
+        <Rectangle Fill="#FF0040FF" Height="1" Margin="14,157,6.4,0" Stroke="#FF0040FF" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
             <Rectangle.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleY="-1"/>
@@ -47,12 +47,28 @@
                 </TransformGroup>
             </Rectangle.RenderTransform>
         </Rectangle>
-        <Grid x:Name="Diapazon2" Margin="40,274,30.4,94.6" Visibility="Hidden">
+        <Grid x:Name="Diapazon2" Margin="48,253,22.4,115.6" Visibility="Hidden">
             <TextBox x:Name="TBxa" HorizontalAlignment="Left" Height="20" Margin="61,4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="47" Text="1" TextAlignment="Center" BorderBrush="#FF0040FF"/>
             <TextBox x:Name="TBxb" HorizontalAlignment="Left" Height="20" Margin="113,4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="47" Text="5" TextAlignment="Center" BorderBrush="#FF0040FF"/>
             <Label Content="Отрезок:" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{x:Null}" Foreground="White" Width="58"/>
             <Label Content="ε:" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{x:Null}" Foreground="White" Width="20" Margin="172,0,0,0" FontWeight="Bold"/>
             <TextBox x:Name="TBEps_seidel" HorizontalAlignment="Left" Height="20" Margin="192,4,0,0" TextWrapping="Wrap" Text="0.0001" VerticalAlignment="Top" Width="47" BorderBrush="#FF0040FF"/>
+        </Grid>
+        <CheckBox x:Name="CBNewton" Content="Метод Ньютона-Рафсона" HorizontalAlignment="Left" Margin="45,291,0,0" VerticalAlignment="Top" Width="160" Background="White" Foreground="White" BorderBrush="#FF0040FF" Checked="CBNewton_Checked" Unchecked="CBNewton_Unchecked"/>
+        <Grid x:Name="Diapazon3" Margin="48,311,112.4,57.6" Visibility="Hidden">
+            <TextBox x:Name="TBx0" HorizontalAlignment="Left" Height="20" Margin="28,4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="47" Text="1" TextAlignment="Center" BorderBrush="#FF0040FF"/>
+            <Label Content="X0" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{x:Null}" Foreground="White" Width="58"/>
+            <Label Content="ε:" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{x:Null}" Foreground="White" Width="20" Margin="86,2,0,0" FontWeight="Bold"/>
+            <TextBox x:Name="TBEps_newton" HorizontalAlignment="Left" Height="20" Margin="106,6,0,0" TextWrapping="Wrap" Text="0.0001" VerticalAlignment="Top" Width="47" BorderBrush="#FF0040FF"/>
+        </Grid>
+        <Grid x:Name="GRID1_Copy" Margin="44,53,38.4,260.6" Visibility="Hidden">
+            <TextBox x:Name="TBExpression_newton1" HorizontalAlignment="Left" Height="20" Margin="82,3,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="158" BorderBrush="#FF0040FF" Text="sin(y) + 2x = 2" FontFamily="Arial" FontSize="15" IsEnabled="False"/>
+            <Label Content="Уравнение 1" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{x:Null}" Foreground="White"/>
+            <Label Content="Ответ" HorizontalAlignment="Left" Margin="0,52,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="White"/>
+            <TextBox x:Name="TBAnswer_newton" HorizontalAlignment="Left" Height="20" Margin="46,58,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="194" BorderBrush="#FF0040FF" FontFamily="Arial" FontSize="15" IsEnabled="False"/>
+            <Label Content="" HorizontalAlignment="Left" Margin="0,62,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="White"/>
+            <TextBox x:Name="TBExpression_newton2" HorizontalAlignment="Left" Height="20" Margin="82,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="158" BorderBrush="#FF0040FF" Text="cos(x-1) + y = 0.7" FontFamily="Arial" FontSize="15" IsEnabled="False"/>
+            <Label Content="Уравнение 2" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{x:Null}" Foreground="White" Margin="0,26,0,0"/>
         </Grid>
     </Grid>
 </Window>
