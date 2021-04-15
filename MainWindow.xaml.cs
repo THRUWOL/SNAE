@@ -1,5 +1,4 @@
-﻿using org.mariuszgromada.math.mxparser;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,7 +12,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Expression = org.mariuszgromada.math.mxparser.Expression; //парсер для формулы
 
 namespace SNAE
 {
@@ -24,42 +22,61 @@ namespace SNAE
         private void BClose_Click(object sender, RoutedEventArgs e) => this.Close();
         private void BMinimize_Click(object sender, RoutedEventArgs e) => this.WindowState = WindowState.Minimized;
 
-        readonly Argument x = new Argument("x");
-
+        double f(double x) 
+        {
+            return (x*x) - Math.Cos(x);
+        }
         private void BStart_Click(object sender, RoutedEventArgs e)
         {
-            x.setArgumentValue(1);
-            Expression expression = new Expression(TBExpression.Text, x); // парсим формулу
+            double left = Convert.ToDouble(TBLeft.Text);
+            double right = Convert.ToDouble(TBRight.Text);
+            double x_prev = Convert.ToDouble(TBxa.Text);
+            double x_curr = Convert.ToDouble(TBxb.Text);
+            double left_expression = f(left);
 
             double eps = Convert.ToDouble(TBEps.Text);
-            double left_argument = Convert.ToDouble(TBLeft.Text);
-            double right_argument = Convert.ToDouble(TBRight.Text);
-            double middle_argument = 0;
+            double eps2 = Convert.ToDouble(TBEps_seidel.Text);
             double h;
-            
-            if (expression != null && left_argument != null && right_argument != null)
+            int iter = 0;
+
+            if (left != null && right != null)
             {
                 if (CBBisection.IsChecked == true)
                 {
-                    while (right_argument-left_argument > eps)
+                    do
                     {
-                        h = (right_argument - left_argument) / 2;
-                        middle_argument = left_argument + h;
-                        if (Math.Sign(left_argument) != Math.Sign(right_argument))
-                        {
-                            right_argument = middle_argument;
-                        }
-                        else left_argument = middle_argument;
-                    }
-                    TBExpression.Text = Convert.ToString(middle_argument);
+                        h = (left + right) / 2;
+                        double middle_expresion = f(h);
+                        if ((left_expression * middle_expresion) < 0) right = h;
+                        else left = h;
+                        if (Math.Abs(middle_expresion) <= eps || (right - left) <= eps || iter == 1000) break;
+                        iter++;
+                    } while (true);
+                    TBAnswer.Text = Convert.ToString(h);
+                    TBIter.Text = Convert.ToString(iter);
                 }
                 else if (CBSecant.IsChecked == true)
                 {
+                    iter = 0;
+                    double x_next = 0;
+                    double tmp;
 
+                    do
+                    {
+                        tmp = x_next;
+                        x_next = x_curr - f(x_curr) * (x_prev - x_curr) / (f(x_prev) - f(x_curr));
+                        x_prev = x_curr;
+                        x_curr = tmp;
+                        iter++;
+                    } while (Math.Abs(x_next - x_curr) > eps2);
+                    TBAnswer.Text = Convert.ToString(x_next);
+                    TBIter.Text = Convert.ToString(iter);
                 }
                 else
                 {
                     // если ничего не выбрано
+                    // sin(y) + 2x = 2
+                    // cos(x-1) + y = 0.7
                 }
             }
         }
@@ -77,10 +94,12 @@ namespace SNAE
         private void CBSecant_Checked(object sender, RoutedEventArgs e)
         {
             CBBisection.IsEnabled = false;
+            Diapazon2.Visibility = Visibility;
         }
         private void CBSecant_Unchecked(object sender, RoutedEventArgs e)
         {
             CBBisection.IsEnabled = true;
+            Diapazon2.Visibility = Visibility.Hidden;
         }
 
         // x^2-cos(x) = 0; accuracy = 0.001
